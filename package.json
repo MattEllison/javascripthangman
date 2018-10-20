@@ -1,0 +1,15 @@
+{
+  "name": "hangman",
+  "version": "1.0.0",
+  "description": "",
+  "main": "site.js",
+  "scripts": {
+    "start": "webpack --config webpack.config.js",
+    "sass":"sass site.scss dist/site.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.14.3"
+  }
+}
