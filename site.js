@@ -5,12 +5,18 @@ window.onload = function () {
         't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
     var categories = [
-        ["jackson"],
         ['ellison'],
-        ['reese']
-
+        ['reese'],
+        ["jackson"],
     ];         // Array of topics
+    var categoryMessages = [
+        ["Guess last name"],
+        ["Guess middle name"],
+        ["Guess first name"]
+    ];
     var hints = [
+        ["Please!!!! YOU WISH!!!"],
+        ["Please!!!! YOU WISH!!!"],
         ["Please!!!! YOU WISH!!!"]
     ];
 
@@ -50,11 +56,12 @@ window.onload = function () {
 
     // Select Catagory
     var selectCat = function () {
-        if (chosenCategory === categories[0]) {
-            catagoryName.innerHTML = "The Chosen Category Is First Name";
-        } else if (chosenCategory === categories[1]) {
-            catagoryName.innerHTML = "The Chosen Category Is Last Name";
-        }
+        catagoryName.innerHTML = categoryMessages[nextCategory];
+        // if (chosenCategory === categories[0]) {
+        //     catagoryName.innerHTML = "The Chosen Category Is First Name";
+        // } else if (chosenCategory === categories[1]) {
+        //     catagoryName.innerHTML = "The Chosen Category Is Last Name";
+        // }
     }
 
     // Create geusses ul
@@ -83,7 +90,10 @@ window.onload = function () {
     comments = function () {
         showLives.innerHTML = "You have " + lives + " lives";
         if (lives < 1) {
-            showLives.innerHTML = "Game Over";
+            //showLives.innerHTML = "Wow. Game Over. You killed that poor little man.";
+            document.getElementById('game').classList.add('hideme');
+            document.getElementById('gameover').classList.add('active');
+
         }
         for (var i = 0; i < geusses.length; i++) {
             if (counter + space === geusses.length) {
@@ -94,7 +104,6 @@ window.onload = function () {
 
     // Animate man
     var animate = function () {
-        debugger
         var drawMe = lives;
         var drawNextPart = drawArray[drawMe];
         console.log('test', typeof drawNextPart)
@@ -134,6 +143,8 @@ window.onload = function () {
         context.stroke();
     }
 
+    //#region frames
+
     frame1 = function () {
         draw(0, 150, 150, 150);
     };
@@ -169,6 +180,8 @@ window.onload = function () {
     leftLeg = function () {
         draw(60, 70, 20, 100);
     };
+    //#endregion
+
 
     drawArray = [[rightLeg, leftLeg, rightArm], [leftArm, torso, head], [frame4, frame3, frame2, frame1]];
 
@@ -198,11 +211,11 @@ window.onload = function () {
 
 
     // Play
+    let nextCategory = 0;
     play = function () {
-
-
-        chosenCategory = categories[Math.floor(Math.random() * categories.length)];
-        word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
+        //chosenCategory = categories[Math.floor(Math.random() * categories.length)];
+        chosenCategory = categories[nextCategory];
+        word = chosenCategory[0];
         word = word.replace(/\s/g, "-");
         console.log(word);
         buttons();
@@ -215,6 +228,7 @@ window.onload = function () {
         comments();
         selectCat();
         canvas();
+        nextCategory++;
     }
 
     play();
@@ -226,17 +240,22 @@ window.onload = function () {
 
         var catagoryIndex = categories.indexOf(chosenCategory);
         var hintIndex = chosenCategory.indexOf(word);
-        showClue.innerHTML = "Clue: - " + hints[catagoryIndex][hintIndex];
+        document.getElementById('clue').classList.add('active');
+        showClue.innerHTML = "Clue: - " + hints[catagoryIndex][0];
     };
 
     // Reset
 
     document.getElementById('reset').onclick = function () {
-        correct.parentNode.removeChild(correct);
-        letters.parentNode.removeChild(letters);
-        showClue.innerHTML = "";
-        context.clearRect(0, 0, 400, 400);
-        play();
+        if (showLives.innerHTML == "You Win!") {
+            correct.parentNode.removeChild(correct);
+            letters.parentNode.removeChild(letters);
+            showClue.innerHTML = "";
+            context.clearRect(0, 0, 400, 400);
+            play();
+        } else {
+            alert('ahh please. you need to win the first one');
+        }
     }
 }
 

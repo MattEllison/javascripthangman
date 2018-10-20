@@ -1,35 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Guess The Baby Name</title>
 </head>
+
 <body>
-    <div class="wrapper">
-        <h1>Hangman</h1>
-         <h2>Vanilla JavaScript Hangman Game</h2>
-         <p>Use the alphabet below to guess the word, or click hint to get a clue. </p>
-     </div>
-     <div class="wrapper">
-         <div id="buttons">
-         </div>  
-         <p id="catagoryName"></p>
-         <div id="hold">
-         </div>
-         <p id="mylives"></p>
-         <p id="clue">Clue -</p>  
-          <canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas tag</canvas>
-         <div class="container">
-           <button id="hint">Hint</button>
-           <button id="reset">Play Next</button>
-         </div>
-     </div>
-     
-     
-     
- <script src="./site.js"></script> 
- <link rel="stylesheet" href="./dist/site.css">   
+    <div id="game">
+        <div class="wrapper">
+            <h1>Hangman</h1>
+            <h2>Guess the baby name</h2>
+            <p>Use the alphabet below to guess the word, or click hint to get a clue. </p>
+        </div>
+        <div class="wrapper">
+            <div id="buttons">
+            </div>
+            <p id="catagoryName"></p>
+            <div id="hold">
+            </div>
+            <p id="mylives"></p>
+            <p id="clue">Clue -</p>
+            <canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas tag</canvas>
+            <div class="container">
+                <button id="hint">Hint</button>
+                <button id="reset">Play Next</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="gameover" class="wrapper">
+        <h1>Wow game over</h1>
+        <h3>You smashed that guy like this cupcake. He will never be the same.</h3>
+        <img style="width:100%" src="https://metrouk2.files.wordpress.com/2016/02/yellow-caje.gif?quality=80&strip=all&zoom=1&resize=540%2C303"
+            alt="">
+
+    </div>
+
+
+
+    <script src="./site.js"></script>
+    <link rel="stylesheet" href="./dist/site.css">
 </body>
+
 </html>

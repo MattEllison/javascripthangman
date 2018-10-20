@@ -5,7 +5,7 @@
   "main": "site.js",
   "scripts": {
     "start": "webpack --config webpack.config.js",
-    "sass":"sass site.scss dist/site.css"
+    "sass":"sass site.scss dist/site.css --watch"
   },
   "author": "",
   "license": "ISC",

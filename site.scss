@@ -96,6 +96,27 @@ p {
   font-size: 1.6em;
 }
 
+#clue{
+    visibility: hidden;
+    &.active{
+        visibility:visible;
+    }
+}
+#gameover{
+  opacity: 1;
+  visibility: hidden;
+  &.active{
+    visibility:visible;
+  }
+}
+
+#game{
+  padding: 10%;
+  &.hideme{
+    display: none;
+  }
+}
+
 #alphabet {
   @include clear;
   margin: 15px auto;
