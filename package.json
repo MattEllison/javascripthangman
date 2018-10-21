@@ -4,7 +4,7 @@
   "description": "",
   "main": "site.js",
   "scripts": {
-    "sass":"sass site.scss dist/site.css --watch",
+    "sass":"sass site.scss dist/site.css",
     "deploy":"cp index.html site.js dist"
   },
   "author": "",

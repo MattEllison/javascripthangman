@@ -10,7 +10,7 @@ window.onload = function () {
         ["jackson"],
     ];         // Array of topics
     var categoryMessages = [
-        ["Guess last name"],
+        ["Guess last name. You got this."],
         ["Guess middle name"],
         ["Guess first name"]
     ];
@@ -19,6 +19,11 @@ window.onload = function () {
         ["Please!!!! YOU WISH!!!"],
         ["Please!!!! YOU WISH!!!"]
     ];
+    var categoriesAlertMessage = [
+        ["Ok now. I think you know this one"],
+        ["Nope. You can't move like that"],
+        ["Nope Nope Nope"]
+    ]
 
     var chosenCategory;     // Selected catagory
     var getHint;          // Word getHint
@@ -254,8 +259,8 @@ window.onload = function () {
             context.clearRect(0, 0, 400, 400);
             play();
         } else {
-            alert('ahh please. you need to win the first one');
-        }
+            var alertMessage = categoriesAlertMessage[nextCategory-1];
+            alert(alertMessage);        }
     }
 }
 
