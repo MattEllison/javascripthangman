@@ -4,8 +4,8 @@
   "description": "",
   "main": "site.js",
   "scripts": {
-    "start": "webpack --config webpack.config.js",
-    "sass":"sass site.scss dist/site.css --watch"
+    "sass":"sass site.scss dist/site.css --watch",
+    "deploy":"cp index.html site.js dist"
   },
   "author": "",
   "license": "ISC",
